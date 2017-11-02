@@ -1,1 +1,4 @@
-<input type="file" id="reviewsFile" name="reviewsFile" />
+<form asp-action="Index" asp-controller="Base" method="POST" enctype="multipart/form-data">
+<input type="file" id="reviewsFile" name="reviewsFile" accept=".csv" />
+<input type="submit" />
+</form>
