@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 
-namespace anvireco_reviews_preprocessor.Models {
+namespace anvireco_reviews_preprocessor.Models
+{
 
-    public class Repository {
+    public class Repository
+    {
 
         public Repository() => this.PullRequests = new List<PullRequest>();
 
@@ -19,6 +21,15 @@ namespace anvireco_reviews_preprocessor.Models {
         public string UpdateDate { get; set; }
 
         public List<PullRequest> PullRequests { get; }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Repository;
+            if (item == null) return false;
+            return this.Id.Equals(item.Id);
+        }
+
+        public override int GetHashCode() => this.Id.GetHashCode();
 
     }
 

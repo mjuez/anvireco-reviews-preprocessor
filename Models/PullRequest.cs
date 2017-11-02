@@ -40,6 +40,15 @@ namespace anvireco_reviews_preprocessor.Models {
 
         public List<Review> Reviews { get; }
 
+        public override bool Equals(object obj)
+        {
+            var item = obj as PullRequest;
+            if (item == null) return false;
+            return this.Id.Equals(item.Id);
+        }
+
+        public override int GetHashCode() => this.Id.GetHashCode();
+
     }
 
 }
