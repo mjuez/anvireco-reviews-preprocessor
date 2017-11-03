@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using anvireco_reviews_preprocessor.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace anvireco_reviews_preprocessor.Controllers
 {
@@ -19,6 +20,9 @@ namespace anvireco_reviews_preprocessor.Controllers
         {
             TypeConverter tc = TypeDescriptor.GetConverter(typeof(ProcessedData));
             var processedData = tc.ConvertFrom(reviewsFile) as ProcessedData;
+
+            var reviewers = processedData.Repositories.SelectMany(r => r.PullRequests.SelectMany(p => p.Reviews.Select(review => review.Reviewer))).Distinct().ToList();
+
             return Ok();
         }
 
