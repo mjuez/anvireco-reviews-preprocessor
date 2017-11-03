@@ -4,8 +4,6 @@ namespace anvireco_reviews_preprocessor.Models {
 
     public class PullRequest {
 
-        public PullRequest() => this.Reviews = new List<Review>();
-
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -38,7 +36,7 @@ namespace anvireco_reviews_preprocessor.Models {
 
         public int ChangedFiles { get; set; }
 
-        public List<Review> Reviews { get; }
+        public List<Review> Reviews { get; } = new List<Review>();
 
         public override bool Equals(object obj)
         {

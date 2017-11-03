@@ -5,9 +5,6 @@ namespace anvireco_reviews_preprocessor.Models
 
     public class Repository
     {
-
-        public Repository() => this.PullRequests = new List<PullRequest>();
-
         public int Id { get; set; }
 
         public string Owner { get; set; }
@@ -20,7 +17,7 @@ namespace anvireco_reviews_preprocessor.Models
 
         public string UpdateDate { get; set; }
 
-        public List<PullRequest> PullRequests { get; }
+        public List<PullRequest> PullRequests { get; } = new List<PullRequest>();
 
         public override bool Equals(object obj)
         {
