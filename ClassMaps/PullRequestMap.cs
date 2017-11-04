@@ -19,7 +19,7 @@ namespace anvireco_reviews_preprocessor.ClassMaps
             Map(m => m.Merged).Name("pull_request_merged");
             Map(m => m.Mergeable).Name("pull_request_mergeable");
             Map(m => m.Comments).Name("pull_request_comments");
-            Map(m => m.Reviews).Name("pull_request_reviews");
+            //Map(m => m.Reviews).Name("pull_request_reviews");
             Map(m => m.ReviewComments).Name("pull_request_review_comments");
             Map(m => m.Commits).Name("pull_request_commits");
             Map(m => m.Additions).Name("pull_request_additions");
