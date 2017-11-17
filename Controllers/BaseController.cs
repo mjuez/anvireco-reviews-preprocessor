@@ -20,7 +20,7 @@ namespace anvireco_reviews_preprocessor.Controllers
             var processedData = await ConvertFromFileAsync(reviewsFile);
             var memoryStream = await ConvertToMemoryStreamAsync(processedData);
         
-            return new FileStreamResult(memoryStream, "text/csv") { FileDownloadName = "export.csv" };
+            return new FileStreamResult(memoryStream, "text/csv") { FileDownloadName = "reviews"+processedData.GetExportFileName()+"_processed.csv" };
         }
 
         public IActionResult Error() => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
